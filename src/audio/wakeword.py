@@ -10,10 +10,21 @@ class WakeWordDetector:
         Strictness is controlled by the threshold (0.0 to 1.0).
         """
         # openWakeWord defaults to ONNX on Windows, which is exactly what we want.
-        self.oww_model = Model(
-            wakeword_models=wakeword_models,
-            inference_framework="onnx"
-        )
+        try:
+            self.oww_model = Model(
+                wakeword_models=wakeword_models,
+                inference_framework="onnx"
+            )
+        except ValueError as e:
+            print(f"WakeWord Error: {e}")
+            print("Available models: alexa, hey_mycroft, hey_jarvis, weather, timer")
+            print("Defaulting to 'hey_jarvis'.")
+            self.oww_model = Model(
+                wakeword_models=["hey_jarvis"],
+                inference_framework="onnx"
+            )
+            wakeword_models = ["hey_jarvis"]
+            
         self.threshold = threshold
         # The key in predictions is usually the model name
         self.wakeword_key = wakeword_models[0]
