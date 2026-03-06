@@ -60,10 +60,11 @@ class Brain:
         self.tools = [get_system_telemetry, control_media, launch_application, web_search]
         
         # Create the agent
+        # Older versions of langgraph use 'prompt' instead of 'state_modifier'
         self.agent_executor = create_react_agent(
             self.llm, 
             tools=self.tools,
-            state_modifier=self.system_prompt
+            prompt=self.system_prompt
         )
         
         # In-memory history for this session
