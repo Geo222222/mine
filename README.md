@@ -11,6 +11,10 @@ Optimus is an autonomous, voice-activated AI assistant designed to operate as a 
 - **📁 Stark Archives (RAG)**: Long-term memory storage for personal notes and project documents using ChromaDB.
 - **🛠️ System & Web Tools**: Ability to control media, volume, launch applications (Chrome, VS Code, Spotify), and perform real-time web searches via the Tavily engine.
 
+## 🔮 Future Roadmap
+
+For planned technical evolutions, see [FUTURE_UPGRADES.md](file:///c:/Users/epinn/Documents/dev/optimus/FUTURE_UPGRADES.md).
+
 ## 🛠️ Hardware Setup (MSI Vector 17)
 
 To ensure full diagnostic capabilities, ensure the following are installed:
